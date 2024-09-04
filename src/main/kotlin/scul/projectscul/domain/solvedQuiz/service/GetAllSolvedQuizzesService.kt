@@ -11,18 +11,15 @@ class GetAllSolvedQuizzesService(
         private val userQuizSolveRepository: SolvedQuizRepository
 ) {
 
-    fun execute(): GetAllSolvedQuizzesResponse {
-        val solvedQuizzes = userQuizSolveRepository.findAll()
+    fun execute() = GetAllSolvedQuizzesResponse (
+            quizzes = userQuizSolveRepository.findAll().map { userQuizSolve ->
 
-        return GetAllSolvedQuizzesResponse(
-                quizzes = solvedQuizzes.map { userQuizSolve ->
-                    GetAllSolvedQuizzesResponse.QuizDto(
-                            id = userQuizSolve.quiz.id,
-                            quiz = userQuizSolve.quiz.quiz,
-                            answer = userQuizSolve.quiz.answer,
-                            reason = userQuizSolve.quiz.reason
-                    )
-                }
-        )
-    }
+                GetAllSolvedQuizzesResponse.QuizDto(
+                        id = userQuizSolve.quiz.id,
+                        quiz = userQuizSolve.quiz.quiz,
+                        answer = userQuizSolve.quiz.answer,
+                        reason = userQuizSolve.quiz.reason
+                )
+            }
+    )
 }
