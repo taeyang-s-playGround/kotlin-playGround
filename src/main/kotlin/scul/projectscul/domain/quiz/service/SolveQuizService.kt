@@ -62,10 +62,6 @@ class SolveQuizService (
             }
 
             currentUser.solvedCounts + 1
-<<<<<<< HEAD
-
-=======
->>>>>>> test
 
             val solvedQuiz = SolvedQuiz(
                 id = 0,
