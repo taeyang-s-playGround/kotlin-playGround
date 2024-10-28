@@ -8,16 +8,16 @@ import scul.projectscul.domain.news.presentation.request.NewsListRequest
 
 @Service
 @Transactional
-class UpdateNewsService (
-        private val newsRepository: NewsRepository
+class UpdateNewsService(
+    private val newsRepository: NewsRepository
 ) {
     fun execute(request: NewsListRequest) {
         request.documents.forEach { newsRequest ->
             val news = News(
-                    id = 0,
-                    title = newsRequest.title,
-                    provider = newsRequest.provider,
-                    providerLinkPage = newsRequest.provider_link_page
+                id = 0,
+                title = newsRequest.title,
+                provider = newsRequest.provider,
+                providerLinkPage = newsRequest.provider_link_page
             )
             newsRepository.save(news)
         }

@@ -11,18 +11,13 @@ import java.util.UUID
 @Component
 @RequiredArgsConstructor
 class UserFacade(
-        private val userRepository: UserRepository
+    private val userRepository: UserRepository
 ) {
 
     fun getCurrentUser(): User {
         val authentication = SecurityContextHolder.getContext().authentication
 
         val email = authentication.name
-
-        println(authentication)
-        println("dddddddd------------")
-        println(authentication.name)
-        println("dddddddd------------")
 
         return userRepository.findByEmail(email) ?: throw UserNotFoundException
     }

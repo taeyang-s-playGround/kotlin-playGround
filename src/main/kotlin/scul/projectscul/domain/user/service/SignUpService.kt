@@ -13,8 +13,8 @@ import scul.projectscul.global.security.jwt.JwtTokenProvider
 @Service
 @Transactional
 class SignUpService(
-        private val userRepository: UserRepository,
-        private val jwtTokenProvider: JwtTokenProvider,
+    private val userRepository: UserRepository,
+    private val jwtTokenProvider: JwtTokenProvider,
 ) {
 
     fun execute(request: SignUpRequest): TokenResponse {
@@ -23,14 +23,14 @@ class SignUpService(
         }
 
         userRepository.save(
-                User(
-                        id = null,
-                        name = request.name,
-                        email = request.email,
-                        birth = request.birth,
-                        profileImage = request.profileImage,
-                        tier = Tier.UNRANKED
-                )
+            User(
+                id = null,
+                name = request.name,
+                email = request.email,
+                birth = request.birth,
+                profileImage = request.profileImage,
+                tier = Tier.UNRANKED
+            )
         )
         return jwtTokenProvider.generateToken(userId = request.email)
     }

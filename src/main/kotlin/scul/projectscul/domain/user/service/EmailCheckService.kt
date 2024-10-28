@@ -7,10 +7,10 @@ import scul.projectscul.domain.user.presentation.request.EmailCheckRequest
 
 @Service
 @Transactional(readOnly = true)
-class EmailCheckService (
-        private val userRepository: UserRepository
+class EmailCheckService(
+    private val userRepository: UserRepository
 ) {
-    fun execute(request: EmailCheckRequest) : Boolean{
+    fun execute(request: EmailCheckRequest): Boolean {
 
         return !userRepository.existsByEmail(request.email)
 

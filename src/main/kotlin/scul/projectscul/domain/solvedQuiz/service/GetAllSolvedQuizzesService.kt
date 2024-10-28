@@ -8,18 +8,18 @@ import scul.projectscul.domain.solvedQuiz.presentation.response.GetAllSolvedQuiz
 @Service
 @Transactional(readOnly = true)
 class GetAllSolvedQuizzesService(
-        private val userQuizSolveRepository: SolvedQuizRepository
+    private val userQuizSolveRepository: SolvedQuizRepository
 ) {
 
-    fun execute() = GetAllSolvedQuizzesResponse (
-            quizzes = userQuizSolveRepository.findAll().map { userQuizSolve ->
+    fun execute() = GetAllSolvedQuizzesResponse(
+        quizzes = userQuizSolveRepository.findAll().map { userQuizSolve ->
 
-                GetAllSolvedQuizzesResponse.QuizDto(
-                        id = userQuizSolve.quiz.id,
-                        quiz = userQuizSolve.quiz.quiz,
-                        answer = userQuizSolve.quiz.answer,
-                        reason = userQuizSolve.quiz.reason
-                )
-            }
+            GetAllSolvedQuizzesResponse.QuizDto(
+                id = userQuizSolve.quiz.id,
+                quiz = userQuizSolve.quiz.quiz,
+                answer = userQuizSolve.quiz.answer,
+                reason = userQuizSolve.quiz.reason
+            )
+        }
     )
 }

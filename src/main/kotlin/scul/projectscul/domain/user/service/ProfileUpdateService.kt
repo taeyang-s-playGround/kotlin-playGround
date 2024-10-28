@@ -7,8 +7,8 @@ import scul.projectscul.domain.user.presentation.request.ProfileUpdateRequest
 
 @Service
 @Transactional
-class ProfileUpdateService (
-        private val userFacade: UserFacade,
+class ProfileUpdateService(
+    private val userFacade: UserFacade,
 ) {
 
     fun execute(request: ProfileUpdateRequest) {

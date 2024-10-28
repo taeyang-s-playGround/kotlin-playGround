@@ -11,25 +11,24 @@ import java.util.*
 
 @RequestMapping("/scul/files")
 @RestController
-class FileController (
-        private val fileUploadService: FileUploadService
+class FileController(
+    private val fileUploadService: FileUploadService
 ) {
 
     @PostMapping("/upload")
     fun uploadFile(@RequestPart @NotNull file: MultipartFile?): UploadFileResponse {
         val result = fileUploadService.execute(
-                file!!.toFile()
+            file!!.toFile()
         )
         return UploadFileResponse(result)
     }
 
     fun MultipartFile.toFile() =
-            File("${UUID.randomUUID()}||$originalFilename").let {
-                FileOutputStream(it).run {
-                    this.write(bytes)
-                    this.close()
-                }
-                it
+        File("${UUID.randomUUID()}||$originalFilename").let {
+            FileOutputStream(it).run {
+                this.write(bytes)
+                this.close()
             }
-
+            it
+        }
 }

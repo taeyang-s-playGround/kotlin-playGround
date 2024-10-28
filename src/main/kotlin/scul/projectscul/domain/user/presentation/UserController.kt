@@ -16,30 +16,30 @@ import scul.projectscul.global.redis.dto.TokenResponse
 
 @RequestMapping("/scul/users")
 @RestController
-class UserController (
-        private val signUpService: SignUpService,
-        private val loginService: LoginService,
-        private val myPageService: MyPageService,
-        private val emailCheckService: EmailCheckService,
-        private val profileUpdateService: ProfileUpdateService
+class UserController(
+    private val signUpService: SignUpService,
+    private val loginService: LoginService,
+    private val myPageService: MyPageService,
+    private val emailCheckService: EmailCheckService,
+    private val profileUpdateService: ProfileUpdateService
 ) {
     @PostMapping("/signup")
-    fun signUp(@RequestBody request: SignUpRequest) : TokenResponse {
+    fun signUp(@RequestBody request: SignUpRequest): TokenResponse {
         return signUpService.execute(request)
     }
 
     @PostMapping("/login")
-    fun login(@RequestBody request: LoginRequest) : TokenResponse{
+    fun login(@RequestBody request: LoginRequest): TokenResponse {
         return loginService.execute(request)
     }
 
     @GetMapping("/mypage")
-    fun mypage() : MyPageResponse {
+    fun mypage(): MyPageResponse {
         return myPageService.execute()
     }
 
     @GetMapping("/email")
-    fun emailCheck(request: EmailCheckRequest) : Boolean {
+    fun emailCheck(request: EmailCheckRequest): Boolean {
         return emailCheckService.execute(request)
     }
 

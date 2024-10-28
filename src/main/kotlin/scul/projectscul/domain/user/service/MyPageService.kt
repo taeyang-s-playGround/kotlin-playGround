@@ -8,8 +8,8 @@ import scul.projectscul.domain.user.presentation.response.MyPageResponse
 
 @Service
 @Transactional(readOnly = true)
-class MyPageService (
-        private val userFacade: UserFacade
+class MyPageService(
+    private val userFacade: UserFacade
 ) {
 
     fun execute(): MyPageResponse {

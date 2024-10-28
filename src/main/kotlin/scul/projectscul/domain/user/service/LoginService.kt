@@ -10,16 +10,16 @@ import scul.projectscul.global.security.jwt.JwtTokenProvider
 
 @Service
 @Transactional
-class LoginService (
-        private val jwtProvider: JwtTokenProvider,
-        private val userRepository: UserRepository
-){
+class LoginService(
+    private val jwtProvider: JwtTokenProvider,
+    private val userRepository: UserRepository
+) {
     fun execute(request: LoginRequest): TokenResponse {
 
-        if(!userRepository.existsByEmail((request.email))) {
+        if (!userRepository.existsByEmail((request.email))) {
             throw UserNotFoundException
 
         }
-                return jwtProvider.generateToken(userId  = request.email)
+        return jwtProvider.generateToken(userId = request.email)
     }
 }

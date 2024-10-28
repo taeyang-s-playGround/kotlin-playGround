@@ -8,14 +8,14 @@ import scul.projectscul.domain.news.presentation.response.NewsListResponse
 
 @Service
 @Transactional(readOnly = true)
-class GetNewsService (
-        private val newsRepository: NewsRepository
+class GetNewsService(
+    private val newsRepository: NewsRepository
 ) {
 
     fun execute(): NewsListResponse {
         return NewsListResponse(
-                newsRepository.findAll()
-                        .map { NewsListResponse.NewsResponse(it) }
+            newsRepository.findAll()
+                .map { NewsListResponse.NewsResponse(it) }
         )
     }
 }

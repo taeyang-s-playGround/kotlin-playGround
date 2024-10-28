@@ -10,23 +10,23 @@ import scul.projectscul.domain.quiz.service.SolveQuizService
 
 @RequestMapping("/scul/quizzes")
 @RestController
-class QuizController (
-        private val getQuizService: GetQuizService,
-        private val solveQuizService: SolveQuizService,
-    ) {
+class QuizController(
+    private val getQuizService: GetQuizService,
+    private val solveQuizService: SolveQuizService,
+) {
 
     @GetMapping("/{quiz-id}")
     fun getQuiz(
-            @PathVariable("quiz-id") @NotNull quizId: Long
-    ) : GetQuizResponse {
+        @PathVariable("quiz-id") @NotNull quizId: Long
+    ): GetQuizResponse {
         return getQuizService.execute(quizId)
     }
 
     @PostMapping("solve/{quiz-id}")
     fun solveQuiz(
-            @RequestBody request: SolveQuizRequest,
-            @PathVariable("quiz-id") @NotNull quizId: Long
-    ) : Boolean {
+        @RequestBody request: SolveQuizRequest,
+        @PathVariable("quiz-id") @NotNull quizId: Long
+    ): Boolean {
         return solveQuizService.execute(request, quizId)
     }
 }

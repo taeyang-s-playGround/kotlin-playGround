@@ -14,13 +14,13 @@ import scul.projectscul.domain.user.facade.UserFacade
 
 @Service
 @Transactional
-class SolveQuizService (
-        private val userFacade: UserFacade,
-        private val quizRepository: QuizRepository,
-        private val solvedQuizRepository: SolvedQuizRepository
+class SolveQuizService(
+    private val userFacade: UserFacade,
+    private val quizRepository: QuizRepository,
+    private val solvedQuizRepository: SolvedQuizRepository
 ) {
 
-    fun execute(request: SolveQuizRequest, quizId: Long) : Boolean {
+    fun execute(request: SolveQuizRequest, quizId: Long): Boolean {
 
         val currentUser: User = userFacade.getCurrentUser()
         val quiz: Quiz = quizRepository.findQuizById(quizId)
@@ -35,27 +35,35 @@ class SolveQuizService (
                 0 -> {
                     currentUser.tier = Tier.UNRANKED
                 }
+
                 in 1..500 -> {
                     currentUser.tier = Tier.BRONZE
                 }
+
                 in 501..1100 -> {
                     currentUser.tier = Tier.SILVER
                 }
+
                 in 1101..1800 -> {
                     currentUser.tier = Tier.GOLD
                 }
+
                 in 1801..2600 -> {
                     currentUser.tier = Tier.PLATINUM
                 }
+
                 in 2601..3700 -> {
                     currentUser.tier = Tier.DIAMOND
                 }
+
                 in 3701..4700 -> {
                     currentUser.tier = Tier.RUBY
                 }
+
                 in 4701..6000 -> {
                     currentUser.tier = Tier.SUN
                 }
+
                 else -> {
                     currentUser.tier = Tier.SUN
                 }

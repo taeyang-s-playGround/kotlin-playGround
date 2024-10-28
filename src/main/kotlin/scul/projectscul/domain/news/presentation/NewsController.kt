@@ -11,14 +11,14 @@ import scul.projectscul.domain.news.service.UpdateNewsService
 
 @RequestMapping("/scul/news")
 @RestController
-class NewsController (
-        private val getNewsService: GetNewsService,
-        private val updateNewsService: UpdateNewsService
+class NewsController(
+    private val getNewsService: GetNewsService,
+    private val updateNewsService: UpdateNewsService
 
 ) {
 
     @GetMapping("/list")
-    fun newsList() : NewsListResponse {
+    fun newsList(): NewsListResponse {
         return getNewsService.execute()
     }
 

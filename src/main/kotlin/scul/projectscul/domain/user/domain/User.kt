@@ -8,33 +8,33 @@ import javax.persistence.*
 
 @Entity
 class User(
-        id : UUID?,
+    id: UUID?,
 
-        @Column(columnDefinition = "VARCHAR(10)", nullable = false)
-        val name: String,
+    @Column(columnDefinition = "VARCHAR(10)", nullable = false)
+    val name: String,
 
-        @Column(columnDefinition = "VARCHAR(50)", nullable = false)
-        val email: String,
+    @Column(columnDefinition = "VARCHAR(50)", nullable = false)
+    val email: String,
 
-        @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-        val birth: LocalDate,
+    @Column(columnDefinition = "VARCHAR(20)", nullable = false)
+    val birth: LocalDate,
 
-        @Column(columnDefinition = "VARCHAR(5000)", nullable = false)
-        var profileImage: String,
+    @Column(columnDefinition = "VARCHAR(5000)", nullable = false)
+    var profileImage: String,
 
-        val todaySolvedCounts: Int = 0,
+    val todaySolvedCounts: Int = 0,
 
-        val solvedCounts: Int = 0,
+    val solvedCounts: Int = 0,
 
-        val score: Int = 0,
+    val score: Int = 0,
 
-        @Enumerated(EnumType.STRING)
-        var tier: Tier
+    @Enumerated(EnumType.STRING)
+    var tier: Tier
 
 ) : BaseUUIDEntity(id) {
 
-        fun updateImage(image: String) {
-                this.profileImage = image
-        }
+    fun updateImage(image: String) {
+        this.profileImage = image
+    }
 }
 

@@ -13,19 +13,19 @@ import java.util.*
 
 @RequestMapping("/scul/quizzes")
 @RestController
-class SolvedQuizController (
+class SolvedQuizController(
     private val getLastQuizListService: GetLastQuizListService,
     private val getAllSolvedQuizzesService: GetAllSolvedQuizzesService
-){
+) {
     @GetMapping("/solved/{user-id}")
     fun getLastQuizList(
         @PathVariable("user-id") @NotNull userId: UUID
-    ) : GetLastSolvedQuizResponse {
+    ): GetLastSolvedQuizResponse {
         return getLastQuizListService.execute(userId)
     }
 
     @GetMapping("/list")
-    fun getAllSolvedQuizzes() : GetAllSolvedQuizzesResponse {
+    fun getAllSolvedQuizzes(): GetAllSolvedQuizzesResponse {
         return getAllSolvedQuizzesService.execute()
     }
 }
