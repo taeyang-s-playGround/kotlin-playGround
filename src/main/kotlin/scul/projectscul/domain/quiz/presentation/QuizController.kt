@@ -1,32 +1,38 @@
 package scul.projectscul.domain.quiz.presentation
 
-import org.jetbrains.annotations.NotNull
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 import scul.projectscul.domain.quiz.presentation.request.SolveQuizRequest
 import scul.projectscul.domain.quiz.presentation.response.GetQuizResponse
-import scul.projectscul.domain.solvedQuiz.service.GetLastQuizListService
 import scul.projectscul.domain.quiz.service.GetQuizService
 import scul.projectscul.domain.quiz.service.SolveQuizService
+import javax.validation.Valid
+import javax.validation.constraints.Positive
 
 @RequestMapping("/scul/quizzes")
 @RestController
+@Validated
 class QuizController(
     private val getQuizService: GetQuizService,
     private val solveQuizService: SolveQuizService,
 ) {
 
-    @GetMapping("/{quiz-id}")
+    @GetMapping("/{id}")
     fun getQuiz(
-        @PathVariable("quiz-id") @NotNull quizId: Long
-    ): GetQuizResponse {
-        return getQuizService.execute(quizId)
-    }
+        @Valid
+        @Positive(message = "1이상이여야합니다.")
+        @PathVariable
+        id: Long,
+    ): GetQuizResponse = getQuizService.execute(id)
 
-    @PostMapping("solve/{quiz-id}")
+    @PostMapping("solve/{id}")
     fun solveQuiz(
-        @RequestBody request: SolveQuizRequest,
-        @PathVariable("quiz-id") @NotNull quizId: Long
-    ): Boolean {
-        return solveQuizService.execute(request, quizId)
-    }
+        @Valid
+        @Positive(message = "1이상이여야합니다.")
+        @PathVariable
+        id: Long,
+        @Valid
+        @RequestBody
+        req: SolveQuizRequest
+    ): Boolean = solveQuizService.execute(req, id)
 }
