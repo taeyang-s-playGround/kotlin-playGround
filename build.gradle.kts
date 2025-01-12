@@ -66,6 +66,9 @@ dependencies {
 	//test
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+
+	//rabbitMQ
+	implementation("org.springframework.boot:spring-boot-starter-amqp")
 }
 
 tasks.withType<KotlinCompile> {
