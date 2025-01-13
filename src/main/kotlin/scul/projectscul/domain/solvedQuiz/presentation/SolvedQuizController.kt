@@ -11,7 +11,7 @@ import scul.projectscul.domain.solvedQuiz.service.GetAllSolvedQuizzesService
 import scul.projectscul.domain.solvedQuiz.service.GetLastQuizListService
 import java.util.*
 
-@RequestMapping("/scul/quizzes")
+@RequestMapping("/quizzes")
 @RestController
 class SolvedQuizController(
     private val getLastQuizListService: GetLastQuizListService,

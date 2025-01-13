@@ -9,7 +9,7 @@ import scul.projectscul.domain.quiz.service.SolveQuizService
 import javax.validation.Valid
 import javax.validation.constraints.Positive
 
-@RequestMapping("/scul/quizzes")
+@RequestMapping("/quizzes")
 @RestController
 @Validated
 class QuizController(

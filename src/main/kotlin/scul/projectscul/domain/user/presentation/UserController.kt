@@ -14,7 +14,7 @@ import scul.projectscul.domain.user.presentation.response.MyPageResponse
 import scul.projectscul.domain.user.service.*
 import scul.projectscul.global.redis.dto.TokenResponse
 
-@RequestMapping("/scul/users")
+@RequestMapping("/users")
 @RestController
 class UserController(
     private val signUpService: SignUpService,

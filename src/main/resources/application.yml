@@ -43,7 +43,7 @@ cloud:
     region:
       static: ap-northeast-2
 
-    stack:
+server:
   servlet:
-    s3:
-      bucket: ${BUCKET_NAME:kangsunbucket}
+    context-path: /kotlinplayground
+

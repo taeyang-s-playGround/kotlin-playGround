@@ -9,7 +9,7 @@ import scul.projectscul.domain.news.presentation.response.NewsListResponse
 import scul.projectscul.domain.news.service.GetNewsService
 import scul.projectscul.domain.news.service.UpdateNewsService
 
-@RequestMapping("/scul/news")
+@RequestMapping("/news")
 @RestController
 class NewsController(
     private val getNewsService: GetNewsService,
