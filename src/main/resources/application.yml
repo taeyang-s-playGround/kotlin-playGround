@@ -2,7 +2,7 @@ spring:
   main:
     allow-bean-definition-overriding : true
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/practice3}
+    url: ${DB_URL:jdbc:mysql://localhost:3306/kotlinplayground}
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:070211}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -36,12 +36,14 @@ logging:
 cloud:
   aws:
     credentials:
-      aws-access-key: ${AWS_ACCESS_KEY:d}
-      aws-secret-key: ${AWS_SECRET_KEY:d}
+      access-key: ${AWS_ACCESS_KEY:a}
+      secret-key: ${AWS_SECRET_KEY:a}
+    s3:
+      bucket: kangsunbucket
     region:
-      static: ${AWS_REGION:ap-northeast-2}
-      auto: false
+      static: ap-northeast-2
+
     stack:
-      auto: false
+  servlet:
     s3:
       bucket: ${BUCKET_NAME:kangsunbucket}
