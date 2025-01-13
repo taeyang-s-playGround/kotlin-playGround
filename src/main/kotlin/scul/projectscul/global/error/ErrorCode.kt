@@ -20,10 +20,7 @@ enum class ErrorCode (
     USER_NOT_FOUND(404, "User Not Found"),
     USER_ALREADY_EXISTS(409, "User Already Exists"),
 
-    TODAY_QUIZ_OVER(409, "Today quiz count over"),
-
-    ITEM_ALREADY_EXISTS(409, "Item Already Exists"),
-
+    INVALID_IMAGE_FORMAT(400, "Invalid Image Format"),
 
     REFRESH_TOKEN_NOT_FOUND(404, "Refresh Token Not Found");
 

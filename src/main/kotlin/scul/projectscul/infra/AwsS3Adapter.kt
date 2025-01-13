@@ -8,6 +8,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest
 import org.springframework.stereotype.Component
 import org.springframework.web.multipart.MultipartFile
 import scul.projectscul.domain.user.exception.UserNotFoundException
+import scul.projectscul.infra.exception.InvalidImageFormatException
 import java.io.IOException
 import java.util.*
 
@@ -41,7 +42,7 @@ class AwsS3Adapter(
                     .withCannedAcl(CannedAccessControlList.PublicRead)
             )
         } catch (e: IOException) {
-            throw UserNotFoundException
+            throw InvalidImageFormatException
         }
     }
 
