@@ -1,5 +1,5 @@
 package scul.projectscul.domain.file.presentation.response
 
-data class UploadFileResponse(
-    val fileUrl: String
+data class ImageUrlResponse(
+    val imageUrls: List<String>
 )

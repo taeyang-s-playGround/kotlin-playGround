@@ -9,12 +9,11 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-
 @Configuration
 class AwsS3Config(
-    @Value("\${cloud.aws.credentials.aws-access-key}")
+    @Value("\${cloud.aws.credentials.access-key}")
     private val accessKey: String,
-    @Value("\${cloud.aws.credentials.aws-secret-key}")
+    @Value("\${cloud.aws.credentials.secret-key}")
     private val secretKey: String,
 ) {
     @Bean
