@@ -2,14 +2,14 @@ spring:
   main:
     allow-bean-definition-overriding : true
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/kotlinplayground}
+    url: ${DB_URL:jdbc:mysql://my-db:3306/kotlinplayground}
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:070211}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true

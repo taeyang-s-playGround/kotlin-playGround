@@ -15,8 +15,8 @@ ENV AWS_ACCESS_KEY ${AWS_ACCESS_KEY}
 ARG AWS_SECRET_KEY
 ENV AWS_SECRET_KEY ${AWS_SECRET_KEY}
 
+WORKDIR /spring-boot
 
-ARG JAR_FILE=build/libs/*.jar
+COPY build/libs/*SNAPSHOT.jar app.jar
 
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java", "-Dspring.profiles.active=doker", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "/spring-boot/app.jar"]
